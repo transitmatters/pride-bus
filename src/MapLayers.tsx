@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { LatLngTuple } from "leaflet";
 import { useEffect } from "react";
-import { TileLayer, useMap } from "react-leaflet";
+import { useMap } from "react-leaflet";
 import { Hotline } from "react-leaflet-hotline";
 // @ts-expect-error untyped
 import { MarkerLayer, Marker } from "react-leaflet-marker";
@@ -22,10 +22,6 @@ export const MapLayers = ({ formattedPolyline, position }: MapLayersProps) => {
 
   return (
     <>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
       <MarkerLayer pane="markerPane">
         <Marker position={position} size={[24, 24]}>
           <img className="h-6" src={"pride-logo.png"} />
