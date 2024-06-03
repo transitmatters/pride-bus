@@ -65,13 +65,15 @@ export const Footer = ({ busStatus, stopName, status, routeId }: any) => {
 
           {!isMobile && (
             <div className="flex flex-row justify-end">
-              <button
-                type="button"
-                className="inline-flex items-center gap-x-2 rounded bg-red-600 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Donate
-                <HeartIcon className="h-3 w-3" />
-              </button>
+              <a href="https://transitmatters.org/donate">
+                <button
+                  type="button"
+                  className="inline-flex items-center gap-x-2 rounded bg-red-600 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Donate
+                  <HeartIcon className="h-3 w-3" />
+                </button>
+              </a>
 
               <div className="w-32 md:w-42 lg:w-46 pl-1 md:pl-2 flex flex-row items-center ">
                 <a href="https://transitmatters.org ">
