@@ -6,7 +6,7 @@ import { Link } from "react-scroll";
 
 export const Title = () => {
   return (
-    <div className=" flex h-screen w-full flex-col items-center justify-center gap-4 bg-stone-100 bg-gradient">
+    <div className="flex h-screen w-full flex-col items-center justify-center gap-4 bg-stone-100 bg-gradient p-4">
       <h1 className="text-center text-3xl font-bold uppercase italic text-grey-100 sm:text-5xl lg:text-6xl">
         Mbta <span className="gradient-text drop-shadow-2xl">pride</span> bus
         tracker
