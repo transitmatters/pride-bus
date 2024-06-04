@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { LatLngTuple } from "leaflet";
 import { useEffect } from "react";
 import { useMap } from "react-leaflet";
 import { Hotline } from "react-leaflet-hotline";
-// @ts-expect-error untyped
 import { MarkerLayer, Marker } from "react-leaflet-marker";
 
 interface MapLayersProps {
@@ -22,7 +20,12 @@ export const MapLayers = ({ formattedPolyline, position }: MapLayersProps) => {
 
   return (
     <>
-      <MarkerLayer pane="markerPane">
+      <MarkerLayer
+        pane="markerPane"
+        attribution={
+          '&copy; <a href="https://transitmatters.org">TransitMatters</a>'
+        }
+      >
         <Marker position={position} size={[24, 24]}>
           <img className="h-6" src={"pride-logo.png"} />
         </Marker>
@@ -39,6 +42,19 @@ export const MapLayers = ({ formattedPolyline, position }: MapLayersProps) => {
             weight: 5,
             max: 10,
             min: 1,
+            palette: [
+              { r: 228, g: 3, b: 3, t: 0 },
+              { r: 255, g: 140, b: 0, t: 0.1 },
+              { r: 255, g: 255, b: 0, t: 0.2 },
+              { r: 0, g: 128, b: 38, t: 0.3 },
+              { r: 36, g: 64, b: 142, t: 0.4 },
+              { r: 115, g: 41, b: 130, t: 0.5 },
+              { r: 255, g: 255, b: 255, t: 0.6 },
+              { r: 255, g: 175, b: 200, t: 0.7 },
+              { r: 116, g: 215, b: 238, t: 0.8 },
+              { r: 97, g: 57, b: 21, t: 0.9 },
+              { r: 0, g: 0, b: 0, t: 1 },
+            ],
           }}
         />
       )}

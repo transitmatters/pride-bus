@@ -1,5 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useQuery } from "@tanstack/react-query";
+
+const APP_DATA_BASE_PATH =
+  process.env.NODE_ENV === "production"
+    ? "https://pride-bus-api.labs.transitmatters.org"
+    : "http://127.0.0.1:5000";
 
 const fetchJSON = async (url: string) => {
   const response = await fetch(url);
@@ -17,14 +21,14 @@ const useDataQuery = (
 ) =>
   useQuery({
     queryKey: [key, id],
-    queryFn: () => fetchJSON(`/api/${endpoint}/${id}`),
+    queryFn: () => fetchJSON(`${APP_DATA_BASE_PATH}/api/${endpoint}/${id}`),
     enabled: enabled && !!id,
   });
 
 export const useBusData = () =>
   useQuery({
     queryKey: ["pride-bus"],
-    queryFn: () => fetchJSON(`/api/bus`),
+    queryFn: () => fetchJSON(`${APP_DATA_BASE_PATH}/api/bus`),
     refetchInterval: 10000,
   });
 

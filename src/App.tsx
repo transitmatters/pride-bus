@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMemo } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "./App.css";
-// @ts-expect-error untyped
 import polyline from "@mapbox/polyline";
 import { Element } from "react-scroll";
 import { MapLayers } from "./MapLayers";
@@ -65,13 +63,13 @@ function App() {
       <Title />
       <div className="flex h-screen flex-col bg-stone-100">
         <MapContainer
-          zoom={13}
+          zoom={14}
           center={center}
           scrollWheelZoom={false}
           style={{ height: "100%", width: "100%" }}
           dragging={true}
         >
-          <ChangeView center={center} zoom={13} />
+          <ChangeView center={center} zoom={14} />
           <Element name="center">
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { STATUSES, STATUS_TO_BG, useScreenDetector } from "../utils";
 import { ArrowRightIcon, HeartIcon } from "@heroicons/react/20/solid";
+import { STATUSES, STATUS_TO_BG, useScreenDetector } from "../utils";
 
 export const Footer = ({ busStatus, stopName, status, routeId }: any) => {
   const { isMobile } = useScreenDetector();
