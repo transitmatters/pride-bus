@@ -2,17 +2,17 @@
   "Parameters": {
     "TMFrontendHostname": {
       "Type": "String",
-      "Default": "pride-bus.labs.transitmatters.org",
+      "Default": "pridebus.transitmatters.org",
       "AllowedValues": [
-        "pride-bus.transitmatters.org",
-        "pride-bus.labs.transitmatters.org"
+        "pridebus.transitmatters.org",
+        "pridebus.labs.transitmatters.org"
       ],
       "Description": "The frontend hostname for the pride bus tracker"
     },
     "TMFrontendZone": {
       "Type": "String",
       "Default": "labs.transitmatters.org",
-      "AllowedPattern": "^labs\\.transitmatters\\.org$",
+      "AllowedPattern": "^pridebus\\.transitmatters\\.org$|^labs\\.transitmatters\\.org$",
       "Description": "The frontend's DNS zone file name. Most likely labs.transitmatters.org."
     },
     "TMBackendZone": {

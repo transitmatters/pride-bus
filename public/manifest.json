@@ -1,0 +1,16 @@
+{
+  "short_name": "Pride Bus",
+  "name": "Transitmatters Pride Bus Tracker",
+  "description": "Live tracking of MBTA's pride bus brought to you by the TransitMatters Labs team",
+  "icons": [
+    {
+      "src": "pride-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

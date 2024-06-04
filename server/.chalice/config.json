@@ -20,7 +20,7 @@
         "DD_TRACE_ENABLED": "true",
         "DD_PROFILING_ENABLED": "true",
         "DD_ENV": "prod",
-        "TM_CORS_HOST": "pride-bus.labs.transitmatters.org"
+        "TM_CORS_HOST": "pridebus.transitmatters.org"
       },
       "tags": {
         "service": "pride-bus",

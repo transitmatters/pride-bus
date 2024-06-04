@@ -15,7 +15,7 @@ export const Title = () => {
         <h1 className="text-md font-bold italic text-grey-100">by</h1>
         <div className="w-32 md:w-64 lg:w-52 pl-1 md:pl-2 flex flex-row">
           <a href="https://transitmatters.org">
-            <img src={"Logo_wordmark.png"} />
+            <img src={"Logo_wordmark.png"} alt="TransitMatters Logo" />
           </a>
         </div>
       </div>

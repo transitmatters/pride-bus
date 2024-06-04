@@ -36,7 +36,7 @@ export const MapLayers = ({
         }
       >
         <Marker position={position} size={[24, 24]}>
-          <img className="h-6" src={"pride-logo.png"} />
+          <img className="h-6" src={"pride-logo.png"} alt="MBTA Pride Logo" />
         </Marker>
       </MarkerLayer>
       {formattedPolyline && (
