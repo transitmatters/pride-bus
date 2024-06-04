@@ -23,6 +23,7 @@ module.exports = {
     "import/order": "error",
     "import/newline-after-import": "error",
     "import/no-unused-modules": ["warn", { unusedExports: true }],
+    "@typescript-eslint/no-explicit-any": "warn",
     "import/no-useless-path-segments": [
       "error",
       {

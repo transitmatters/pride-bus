@@ -1,16 +1,25 @@
 import { LatLngTuple } from "leaflet";
 import { useEffect } from "react";
-import { useMap } from "react-leaflet";
+import { useMap, useMapEvent } from "react-leaflet";
 import { Hotline } from "react-leaflet-hotline";
 import { MarkerLayer, Marker } from "react-leaflet-marker";
 
 interface MapLayersProps {
   formattedPolyline: [{ lat: string; lng: string; value: number }];
   position: LatLngTuple;
+  setZoom: (zoom: number) => void;
 }
 
-export const MapLayers = ({ formattedPolyline, position }: MapLayersProps) => {
+export const MapLayers = ({
+  formattedPolyline,
+  position,
+  setZoom,
+}: MapLayersProps) => {
   const map = useMap();
+
+  useMapEvent("zoom", (event) => {
+    setZoom(event.target.getZoom());
+  });
 
   useEffect(() => {
     // Create a custom pane with a high zIndex

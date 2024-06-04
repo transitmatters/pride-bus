@@ -17,7 +17,7 @@ const useDataQuery = (
   key: string,
   id: string | undefined,
   endpoint: string,
-  enabled: boolean = true
+  enabled: boolean = true,
 ) =>
   useQuery({
     queryKey: [key, id],
@@ -37,7 +37,7 @@ export const useTripData = (busData: any) =>
     "trips",
     busData?.data?.relationships?.trip?.data?.id,
     "trip",
-    !!busData?.data
+    !!busData?.data,
   );
 
 export const useRouteData = (busData: any) =>
@@ -45,7 +45,7 @@ export const useRouteData = (busData: any) =>
     "route",
     busData?.data?.relationships?.route?.data?.id,
     "route",
-    !!busData?.data
+    !!busData?.data,
   );
 
 export const useStopData = (busData: any) =>
@@ -53,7 +53,7 @@ export const useStopData = (busData: any) =>
     "stop",
     busData?.data?.relationships?.stop?.data?.id,
     "stop",
-    !!busData?.data
+    !!busData?.data,
   );
 
 export const useShapeData = (tripData: any) =>
@@ -61,5 +61,5 @@ export const useShapeData = (tripData: any) =>
     "shapes",
     tripData?.data?.relationships?.shape?.data?.id,
     "shape",
-    !!tripData?.data
+    !!tripData?.data,
   );
