@@ -7,18 +7,18 @@ export AWS_REGION=us-east-1
 export AWS_DEFAULT_REGION=us-east-1
 export AWS_PAGER=""
 
-if [[ -z "$DD_API_KEY" || -z "$TM_LABS_WILDCARD_CERT_ARN" || -z "$MBTA_V3_API_KEY" ]]; then
-    echo "Must provide DD_API_KEY, TM_LABS_WILDCARD_CERT_ARN and MBTA_V3_API_KEY in environment" 1>&2
+if [[ -z "$DD_API_KEY" || -z "$TM_PRIDEBUS_CERN_ARN" || -z "$TM_LABS_WILDCARD_CERT_ARN" || -z "$MBTA_V3_API_KEY" ]]; then
+    echo "Must provide DD_API_KEY, TM_PRIDEBUS_CERN_ARN, TM_LABS_WILDCARD_CERT_ARN and MBTA_V3_API_KEY in environment" 1>&2
     exit 1
 fi
 
 STACK_NAME=pride-bus
 CHALICE_STAGE=production
 
-FRONTEND_HOSTNAME="pride-bus.labs.transitmatters.org"
-FRONTEND_ZONE="labs.transitmatters.org"
+FRONTEND_HOSTNAME="pridebus.transitmatters.org"
+FRONTEND_ZONE="pridebus.transitmatters.org"
 FRONTEND_BUCKET="$FRONTEND_HOSTNAME"
-FRONTEND_CERT_ARN="$TM_LABS_WILDCARD_CERT_ARN"
+FRONTEND_CERT_ARN="$TM_PRIDEBUS_CERN_ARN"
 
 BACKEND_HOSTNAME="pride-bus-api.labs.transitmatters.org"
 BACKEND_ZONE="labs.transitmatters.org"
