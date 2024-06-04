@@ -1,5 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useQuery } from "@tanstack/react-query";
+
+const APP_DATA_BASE_PATH =
+  process.env.NODE_ENV === "production"
+    ? "https://pride-bus-api.labs.transitmatters.org"
+    : "http://127.0.0.1:5000";
 
 const fetchJSON = async (url: string) => {
   const response = await fetch(url);
@@ -13,18 +17,18 @@ const useDataQuery = (
   key: string,
   id: string | undefined,
   endpoint: string,
-  enabled: boolean = true
+  enabled: boolean = true,
 ) =>
   useQuery({
     queryKey: [key, id],
-    queryFn: () => fetchJSON(`/api/${endpoint}/${id}`),
+    queryFn: () => fetchJSON(`${APP_DATA_BASE_PATH}/api/${endpoint}/${id}`),
     enabled: enabled && !!id,
   });
 
 export const useBusData = () =>
   useQuery({
     queryKey: ["pride-bus"],
-    queryFn: () => fetchJSON(`/api/bus`),
+    queryFn: () => fetchJSON(`${APP_DATA_BASE_PATH}/api/bus`),
     refetchInterval: 10000,
   });
 
@@ -33,7 +37,7 @@ export const useTripData = (busData: any) =>
     "trips",
     busData?.data?.relationships?.trip?.data?.id,
     "trip",
-    !!busData?.data
+    !!busData?.data,
   );
 
 export const useRouteData = (busData: any) =>
@@ -41,7 +45,7 @@ export const useRouteData = (busData: any) =>
     "route",
     busData?.data?.relationships?.route?.data?.id,
     "route",
-    !!busData?.data
+    !!busData?.data,
   );
 
 export const useStopData = (busData: any) =>
@@ -49,7 +53,7 @@ export const useStopData = (busData: any) =>
     "stop",
     busData?.data?.relationships?.stop?.data?.id,
     "stop",
-    !!busData?.data
+    !!busData?.data,
   );
 
 export const useShapeData = (tripData: any) =>
@@ -57,5 +61,5 @@ export const useShapeData = (tripData: any) =>
     "shapes",
     tripData?.data?.relationships?.shape?.data?.id,
     "shape",
-    !!tripData?.data
+    !!tripData?.data,
   );

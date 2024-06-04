@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMemo, useState } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "./App.css";
-// @ts-expect-error untyped
 import polyline from "@mapbox/polyline";
 import { Element } from "react-scroll";
 import { MapLayers } from "./MapLayers";
@@ -31,7 +29,7 @@ function App() {
   const formattedPolyline = useMemo(() => {
     if (shapeData?.data) {
       const decodedPolyline = polyline.decode(
-        shapeData.data.attributes.polyline
+        shapeData.data.attributes.polyline,
       );
       const totalLength = decodedPolyline.length;
 
@@ -58,7 +56,7 @@ function App() {
       busData?.data.attributes.latitude,
       busData?.data.attributes.longitude,
       busStatus,
-    ]
+    ],
   );
 
   return (
