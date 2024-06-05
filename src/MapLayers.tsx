@@ -1,19 +1,24 @@
 import { LatLngTuple } from "leaflet";
 import { useEffect } from "react";
-import { useMap, useMapEvent } from "react-leaflet";
+import { Marker, useMap, useMapEvent, Tooltip } from "react-leaflet";
 import { Hotline } from "react-leaflet-hotline";
-import { MarkerLayer, Marker } from "react-leaflet-marker";
+import * as L from "leaflet";
+import { ArrowRightIcon } from "@heroicons/react/20/solid";
 
 interface MapLayersProps {
   formattedPolyline: [{ lat: string; lng: string; value: number }];
   position: LatLngTuple;
   setZoom: (zoom: number) => void;
+  destination: string;
+  routeId: string;
 }
 
 export const MapLayers = ({
   formattedPolyline,
   position,
   setZoom,
+  destination,
+  routeId,
 }: MapLayersProps) => {
   const map = useMap();
 
@@ -23,22 +28,24 @@ export const MapLayers = ({
 
   useEffect(() => {
     // Create a custom pane with a high zIndex
-    const pane = map.createPane("markerPane");
-    pane.style.zIndex = "650";
+    // const pane = map.createPane("markerPane");
+    // pane.style.zIndex = "150";
   }, [map]);
 
+  const icon = L.icon({ iconUrl: "../pride-logo.png", iconSize: [24, 24] });
   return (
     <>
-      <MarkerLayer
-        pane="markerPane"
-        attribution={
-          '&copy; <a href="https://transitmatters.org">TransitMatters</a>'
-        }
-      >
-        <Marker position={position} size={[24, 24]}>
-          <img className="h-6" src={"pride-logo.png"} alt="MBTA Pride Logo" />
-        </Marker>
-      </MarkerLayer>
+      <Marker position={position} icon={icon}>
+        <Tooltip
+          direction="top"
+          offset={[0, -13]}
+          className="flex flex-row justify-between items-center"
+        >
+          {routeId} <ArrowRightIcon className="mx-1 h-3 w-3" />
+          {destination}
+        </Tooltip>
+      </Marker>
+
       {formattedPolyline && (
         <Hotline
           data={formattedPolyline}

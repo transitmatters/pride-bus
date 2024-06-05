@@ -1,7 +1,13 @@
 import { ArrowRightIcon, HeartIcon } from "@heroicons/react/20/solid";
 import { STATUSES, STATUS_TO_BG, useScreenDetector } from "../utils";
 
-export const Footer = ({ busStatus, stopName, status, routeId }: any) => {
+export const Footer = ({
+  busStatus,
+  stopName,
+  status,
+  routeId,
+  direction,
+}: any) => {
   const { isMobile } = useScreenDetector();
 
   return (
@@ -57,7 +63,7 @@ export const Footer = ({ busStatus, stopName, status, routeId }: any) => {
               </span>
               <ArrowRightIcon className="mx-2 h-5 w-5" />
               <span className="inline-flex items-center rounded-md bg-yellow-300 px-2 py-1 text-xs font-medium ">
-                Route {routeId}
+                {direction} Route {routeId}
               </span>
             </p>
           </div>
