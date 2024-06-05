@@ -8,8 +8,8 @@ export const getInfo = (busData: any, routeData: any, stopData: any) => ({
 
 export const STATUSES: any = {
   INCOMING_AT: "Approaching",
-  STOPPED_AT: "Stopped at",
-  IN_TRANSIT_TO: "In transit to",
+  STOPPED_AT: "Stopped",
+  IN_TRANSIT_TO: "In transit",
 };
 
 export const STATUS_TO_BG: any = {

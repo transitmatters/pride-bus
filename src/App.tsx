@@ -84,6 +84,12 @@ function App() {
                   busData?.data.attributes.latitude,
                   busData?.data.attributes.longitude,
                 ]}
+                destination={
+                  routeData?.data.attributes.direction_destinations[
+                    busData?.data.attributes.direction_id
+                  ]
+                }
+                routeId={routeId}
               />
             )}
           </Element>
@@ -93,6 +99,11 @@ function App() {
           busStatus={busStatus}
           status={status}
           stopName={stopName}
+          direction={
+            routeData?.data.attributes.direction_names[
+              busData?.data.attributes.direction_id
+            ]
+          }
         />
       </div>
     </>
