@@ -1,6 +1,5 @@
 import { LatLngTuple } from "leaflet";
-import { useEffect } from "react";
-import { Marker, useMap, useMapEvent, Tooltip } from "react-leaflet";
+import { Marker, useMapEvent, Tooltip } from "react-leaflet";
 import { Hotline } from "react-leaflet-hotline";
 import * as L from "leaflet";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
@@ -20,17 +19,9 @@ export const MapLayers = ({
   destination,
   routeId,
 }: MapLayersProps) => {
-  const map = useMap();
-
   useMapEvent("zoom", (event) => {
     setZoom(event.target.getZoom());
   });
-
-  useEffect(() => {
-    // Create a custom pane with a high zIndex
-    // const pane = map.createPane("markerPane");
-    // pane.style.zIndex = "150";
-  }, [map]);
 
   const icon = L.icon({ iconUrl: "../pride-logo.png", iconSize: [24, 24] });
   return (
