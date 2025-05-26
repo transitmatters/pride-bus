@@ -29,7 +29,7 @@ function App() {
   const formattedPolyline = useMemo(() => {
     if (shapeData?.data) {
       const decodedPolyline = polyline.decode(
-        shapeData.data.attributes.polyline,
+        shapeData.data.attributes.polyline
       );
       const totalLength = decodedPolyline.length;
 
@@ -56,7 +56,7 @@ function App() {
       busData?.data.attributes.latitude,
       busData?.data.attributes.longitude,
       busStatus,
-    ],
+    ]
   );
 
   return (

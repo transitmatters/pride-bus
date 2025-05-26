@@ -5,7 +5,7 @@ import * as L from "leaflet";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 
 interface MapLayersProps {
-  formattedPolyline: [{ lat: string; lng: string; value: number }];
+  formattedPolyline: Array<{ lat: number; lng: number; value: number }>;
   position: LatLngTuple;
   setZoom: (zoom: number) => void;
   destination: string;
@@ -40,9 +40,9 @@ export const MapLayers = ({
       {formattedPolyline && (
         <Hotline
           data={formattedPolyline}
-          getLat={(t: any) => t.lat}
-          getLng={(t: any) => t.lng}
-          getVal={(t: any) => t.value}
+          getLat={(t: any) => t.point.lat}
+          getLng={(t: any) => t.point.lng}
+          getVal={(t: any) => t.point.value}
           options={{
             outlineWidth: 8,
             outlineColor: "black",
