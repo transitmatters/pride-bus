@@ -1,6 +1,6 @@
 # Pride Bus Tracker
 
-- Tracks the MBTA Pride bus #1833
+- Tracks the MBTA Pride bus #1843
 
 ## Requirements to develop locally
 

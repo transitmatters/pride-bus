@@ -22,7 +22,7 @@ MBTA_V3_API_KEY = os.environ.get("MBTA_V3_API_KEY")
 
 BASE_URL = "https://api-v3.mbta.com"
 ENDPOINTS = {
-    "bus": "/vehicles/y1833?api_key={api_key}",
+    "bus": "/vehicles/y1843?api_key={api_key}",
     "shape": "/shapes/{id}?api_key={api_key}",
     "trip": "/trips/{id}?api_key={api_key}",
     "route": "/routes/{id}?api_key={api_key}",
