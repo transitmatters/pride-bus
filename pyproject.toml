@@ -1,30 +1,38 @@
-[tool.poetry]
+[project]
 name = "pride-bus"
 version = "1.0.0"
 description = "API handler for the finding the pride bus"
-authors = ["TransitMatters Labs Team"]
+authors = [{ name = "TransitMatters Labs Team" }]
 license = "MIT"
-package-mode = false
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "requests==2.32.3",
+    "boto3>=1.34.118,<2.0.0",
+    "datadog-lambda>=6.104.0,<6.105.0",
+    # datadog-lambda only requires ddtrace>=2.17.0; pin to the 2.x line whose
+    # API (e.g. ddtrace.Span) datadog-lambda 6.104 still imports.
+    "ddtrace>=2.17.0,<3.0.0",
+    "tzdata>=2024.1",
+]
 
-[tool.poetry.dependencies]
-python = "~3.12"
-requests = "2.32.3"
-boto3 = "^1.34.118"
-datadog_lambda = "~6.104.0"
+[dependency-groups]
+dev = [
+    "pip>=24.1",
+    "chalice==1.31.3",
+    "ruff>=0.15.0",
+    "pre-commit>=4.0.0",
+]
 
-[tool.poetry.dev-dependencies]
-pip = ">=24.1"
-chalice = "1.31.3"
-flake8 = "^7.1.1"
-black = "^24.10.0"
+[tool.uv]
+package = false
 
-[tool.poetry.requires-plugins]
-poetry-plugin-export = "^1.9.0"
-
-[tool.black]
+[tool.ruff]
 line-length = 120
-target-version = ['py312']
+target-version = "py312"
+exclude = [".chalice", ".venv"]
 
-[build-system]
-requires = ["poetry-core>=1.9.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.ruff.lint]
+# E/F are pyflakes + pycodestyle (the flake8 core). E731 = "do not assign a
+# lambda" was previously ignored in .flake8, so keep ignoring it.
+select = ["E", "F", "W"]
+ignore = ["E731"]
