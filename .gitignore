@@ -11,8 +11,13 @@ node_modules
 dist
 dist-ssr
 *.local
+
+# Python / uv / Ruff
 *.pyc
+__pycache__/
 server/**/__pycache__
+.venv/
+.ruff_cache/
 requirements.txt
 server/cfn/*
 server/.chalice/deployments/*
@@ -20,6 +25,7 @@ server/.chalice/deployments/*
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea
 .DS_Store
 *.suo

@@ -1,0 +1,26 @@
+# Run `uv run pre-commit install` once to enable these hooks locally.
+# See https://pre-commit.com and https://docs.astral.sh/ruff/integrations/
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.15
+    hooks:
+      # Lint Python and apply autofixes
+      - id: ruff-check
+        args: [--fix]
+      # Format Python
+      - id: ruff-format
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.10.1
+    hooks:
+      # Keep uv.lock in sync with pyproject.toml
+      - id: uv-lock
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: check-added-large-files
