@@ -12,6 +12,15 @@ a Python [Chalice](https://aws.github.io/chalice/) app proxies the MBTA V3 API.
   [Ruff](https://docs.astral.sh/ruff/) (lint + format), ESLint + Prettier,
   [pre-commit](https://pre-commit.com)
 
+## Project structure
+
+```
+src/                     # React frontend (map, layers, and API hooks in api.ts)
+server/app.py            # Chalice app that proxies the MBTA V3 API; the bus ID (y1843) is set here
+server/cloudformation.json  # S3 bucket and CloudFront distribution for the frontend
+deploy.sh                # Builds and deploys the whole stack
+```
+
 ## Requirements to develop locally
 
 - **Node 20.x and npm 10+**
