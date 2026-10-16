@@ -23,8 +23,8 @@ deploy.sh                # Builds and deploys the whole stack
 
 ## Requirements to develop locally
 
-- **Node 20.x and npm 10+**
-  - With [`nvm`](https://github.com/nvm-sh/nvm) installed: `nvm install && nvm use`
+- **Node 24 and npm 11+** (pinned in `.nvmrc`)
+  - Any version manager that reads `.nvmrc` works, e.g. [`nvm`](https://github.com/nvm-sh/nvm): `nvm install && nvm use`
   - Verify with `node -v`
 - **Python 3.12 via [uv](https://docs.astral.sh/uv/)**
   - Install uv: `curl -LsSf https://astral.sh/uv/install.sh | sh` (or `brew install uv`)
@@ -35,7 +35,7 @@ deploy.sh                # Builds and deploys the whole stack
 ## Setup
 
 ```sh
-nvm use            # select Node 20
+nvm use            # select Node 24 from .nvmrc
 npm install        # installs Node deps; `postinstall` runs `uv sync` for Python deps
 ```
 
@@ -56,8 +56,9 @@ npm start
 ```
 
 This runs the Vite dev server and the Chalice backend (`chalice local`)
-concurrently. The backend reads the MBTA API key from the `MBTA_V3_API_KEY`
-environment variable.
+concurrently. The backend requires an MBTA V3 API key in the `MBTA_V3_API_KEY`
+environment variable; without it, every API request returns a 500. You can get a
+free key from the [MBTA V3 API portal](https://api-v3.mbta.com/).
 
 ## Linting and formatting
 
