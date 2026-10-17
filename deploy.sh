@@ -40,7 +40,9 @@ pushd server/ > /dev/null
 uv export --no-hashes --no-dev --no-emit-project --frozen --output-file requirements.txt
 uv run chalice package --stage $CHALICE_STAGE --merge-template cloudformation.json cfn/
 aws cloudformation package --template-file cfn/sam.json --s3-bucket $BACKEND_BUCKET --output-template-file cfn/packaged.yaml
-aws cloudformation deploy --template-file cfn/packaged.yaml --stack-name $STACK_NAME --capabilities CAPABILITY_IAM --no-fail-on-empty-changeset --parameter-overrides \
+aws cloudformation deploy --template-file cfn/packaged.yaml --stack-name $STACK_NAME --capabilities CAPABILITY_IAM --no-fail-on-empty-changeset \
+    --tags service=pride-bus env=prod team=tm-labs \
+    --parameter-overrides \
     TMFrontendHostname=$FRONTEND_HOSTNAME \
     TMFrontendZone=$FRONTEND_ZONE \
     TMFrontendCertArn=$FRONTEND_CERT_ARN \
