@@ -12,6 +12,15 @@ a Python [Chalice](https://aws.github.io/chalice/) app proxies the MBTA V3 API.
   [Ruff](https://docs.astral.sh/ruff/) (lint + format), ESLint + Prettier,
   [pre-commit](https://pre-commit.com)
 
+## Project structure
+
+```
+src/                     # React frontend (map, layers, and API hooks in api.ts)
+server/app.py            # Chalice app that proxies the MBTA V3 API; the bus ID (y1843) is set here
+server/cloudformation.json  # S3 bucket and CloudFront distribution for the frontend
+deploy.sh                # Builds and deploys the whole stack
+```
+
 ## Requirements to develop locally
 
 - **Node 24.x and npm 11+**
@@ -47,8 +56,9 @@ npm start
 ```
 
 This runs the Vite dev server and the Chalice backend (`chalice local`)
-concurrently. The backend reads the MBTA API key from the `MBTA_V3_API_KEY`
-environment variable.
+concurrently. The backend requires an MBTA V3 API key in the `MBTA_V3_API_KEY`
+environment variable; without it, every API request returns a 500. You can get a
+free key from the [MBTA V3 API portal](https://api-v3.mbta.com/).
 
 ## Linting and formatting
 
