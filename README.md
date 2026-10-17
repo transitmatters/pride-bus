@@ -14,8 +14,8 @@ a Python [Chalice](https://aws.github.io/chalice/) app proxies the MBTA V3 API.
 
 ## Requirements to develop locally
 
-- **Node 20.x and npm 10+**
-  - With [`nvm`](https://github.com/nvm-sh/nvm) installed: `nvm install && nvm use`
+- **Node 24.x and npm 11+**
+  - With [mise](https://mise.jdx.dev) installed: `mise trust && mise install` (pinned in `.nvmrc` / `.python-version`)
   - Verify with `node -v`
 - **Python 3.12 via [uv](https://docs.astral.sh/uv/)**
   - Install uv: `curl -LsSf https://astral.sh/uv/install.sh | sh` (or `brew install uv`)
@@ -26,7 +26,7 @@ a Python [Chalice](https://aws.github.io/chalice/) app proxies the MBTA V3 API.
 ## Setup
 
 ```sh
-nvm use            # select Node 20
+mise install       # select Node 24 and Python 3.12
 npm install        # installs Node deps; `postinstall` runs `uv sync` for Python deps
 ```
 
