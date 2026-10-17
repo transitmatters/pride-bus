@@ -23,8 +23,8 @@ deploy.sh                # Builds and deploys the whole stack
 
 ## Requirements to develop locally
 
-- **Node 24 and npm 11+** (pinned in `.nvmrc`)
-  - Any version manager that reads `.nvmrc` works, e.g. [`nvm`](https://github.com/nvm-sh/nvm): `nvm install && nvm use`
+- **Node 24.x and npm 11+**
+  - With [mise](https://mise.jdx.dev) installed: `mise trust && mise install` (pinned in `.nvmrc` / `.python-version`)
   - Verify with `node -v`
 - **Python 3.12 via [uv](https://docs.astral.sh/uv/)**
   - Install uv: `curl -LsSf https://astral.sh/uv/install.sh | sh` (or `brew install uv`)
@@ -35,7 +35,7 @@ deploy.sh                # Builds and deploys the whole stack
 ## Setup
 
 ```sh
-nvm use            # select Node 24 from .nvmrc
+mise install       # select Node 24 and Python 3.12
 npm install        # installs Node deps; `postinstall` runs `uv sync` for Python deps
 ```
 
