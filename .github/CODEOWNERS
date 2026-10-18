@@ -1,4 +1,4 @@
-* @skaplan-dev
-deploy.sh @devinmatte @nathan-weinberg
-.github @devinmatte @nathan-weinberg
-.flake8 @devinmatte @nathan-weinberg
+* @skaplan-dev @transitmatters/labs-leads @devinmatte
+deploy.sh @devinmatte @nathan-weinberg @transitmatters/labs-leads
+.github @devinmatte @nathan-weinberg @transitmatters/labs-leads
+.flake8 @devinmatte @nathan-weinberg @transitmatters/labs-leads
