@@ -81,7 +81,7 @@ wheels = [
 
 [[package]]
 name = "chalice"
-version = "1.31.3"
+version = "1.34.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "botocore" },
@@ -94,9 +94,9 @@ dependencies = [
     { name = "six" },
     { name = "wheel" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c6/96/6d97b71c486b8cb846f7894e32b0053551a37c3765797b25e1e20906ec12/chalice-1.31.3.tar.gz", hash = "sha256:b971b23ca4ee636c4cfaf0ab4e9522b98d9ea5f049caf4c80f841598c0e861ae", size = 257061, upload-time = "2024-12-12T20:39:42.74Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/9b/0f/fd694f73a6fae19d0b600b282d79596398c3fc43c0b81b6c074fe1722c3a/chalice-1.34.0.tar.gz", hash = "sha256:38a96338e6592c5605e3da2ebd29c8d402ad5cbcbac635d2ef3ad4024bbc8041", size = 258195, upload-time = "2026-10-23T20:45:10.841Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/60/78/31ce06fca8cdef69acc6bddd2114b31c26b9d7f2f080cbc1e6a4d50a2e74/chalice-1.31.3-py3-none-any.whl", hash = "sha256:5b994f658b7d3bd5ea4ee83df356600ac461142c041b528e3b16a488f3c01239", size = 265466, upload-time = "2024-12-12T20:39:39.77Z" },
+    { url = "https://files.pythonhosted.org/packages/3a/2c/66e68d62a98f6ab3f7b47f1fb36182d6b28676aa53452b6af2f322a1d195/chalice-1.34.0-py3-none-any.whl", hash = "sha256:e0b01050a9dc3f4818a8bb4e36b67decf9066639db4cb21b8eb18edb99e9d1c9", size = 266975, upload-time = "2026-10-23T20:45:09.487Z" },
 ]
 
 [[package]]
@@ -392,7 +392,7 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "chalice", specifier = "==1.31.3" },
+    { name = "chalice", specifier = "==1.34.0" },
     { name = "pip", specifier = ">=24.1" },
     { name = "pre-commit", specifier = ">=4.0.0" },
     { name = "ruff", specifier = ">=0.15.0" },
